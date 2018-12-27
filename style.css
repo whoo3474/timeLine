@@ -1,5 +1,20 @@
-body, h1 {
+body, h1, h2, ul, dl, dd {
   margin: 0;
+  padding:0;
+}
+/* 내가 설정하지 않은 margin, padding 등을 초기화 */
+
+li{
+  list-style-type:none;
+}
+
+body {
+  background-color: #0a222b;
+  text-align: center;
+}
+
+.wrapper {
+  padding: 0 20px;
 }
 
 .cover {
@@ -33,4 +48,56 @@ body, h1 {
   display: block;
   text-indent: 3em;
   /* 들여쓰기 */
+}
+
+.timeline-item{
+  margin-top: 70px;
+}
+
+.card { 
+  background-color: rgba(0,0,0,0.5);
+  color: #999;
+  padding: 20px;
+  /* 마진 겹침 현상을 상쇄하기 위하여 padding:20px 를 주었다.
+  overplow:hidden 이나 border을 주는 방법도 있다. */
+  border-radius: 30px;
+}
+
+.card-icon {
+  width: 100px;
+  height: auto;
+  vertical-align:top;
+  /* position: relative;
+  top: -50px; */
+  /* transform: translateY(-50%); */
+  /* 나의 높이의 -50%만큼 올린다 */
+  margin-top:-70px;
+}
+
+.card-title {
+  font-size: 20vw;
+  color: dodgerblue;
+  font-family: "impact";
+  line-height: 1;
+  margin: 20px;
+}
+
+.card-definition {
+  margin:20px;
+}
+
+.card-definition dt{
+  font-size: 25px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.card-definition dt span{
+  color: dodgerblue;
+  display: block;
+  font-size: 0.5em;
+}
+
+.card-definition dd {
+
 }
