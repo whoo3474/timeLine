@@ -15,6 +15,8 @@ body {
 
 .wrapper {
   padding: 0 20px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .cover {
@@ -27,6 +29,8 @@ body {
   /* 보통 backbround-size 사진이 찌그러지지 않도록 cover을 많이쓴다 */
   background-position: bottom;
   /* position도 center을 많이쓰지만, 이번에는 산비탈을 보이기위하여 bottom */
+  transition: padding .5s;
+  /* 모바일과 pc버전일때 변화가 일어나면유연하게 변화하기 위하여 추가함 */
 }
 
 .cover-title {
@@ -38,6 +42,8 @@ body {
   line-height:1;
   /* 행간을 맞춤 */
   font-style:italic;
+  transition: padding .5s;
+  /* 모바일과 pc버전일때 변화가 일어나면유연하게 변화하기 위하여 추가함 */
 }
 
 .cover-title span {
@@ -98,6 +104,28 @@ body {
   font-size: 0.5em;
 }
 
-.card-definition dd {
+@media (min-width: 720px) {
+  .card-title{
+    font-size: 10vw;
+  }
+  .cover {
+    padding-top : 10%;
+    padding-bottom: 5%;
+  }
 
+  .cover-title {
+    font-size: 15vw;
+  }
+  .timeline-item {
+    width: 50%;
+    padding: 0 20px;
+    box-sizing:border-box;
+  }
+  .timeline-item:nth-child(even){
+    margin-left: auto;
+    margin-top: -150px;
+    margin-bottom: -200px;
+  }
+  /* 짝수에 해당하는 요소를 선택하겠다 */
+  /* 네거티브 마진 겹치는 효과*/
 }
