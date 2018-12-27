@@ -55,6 +55,23 @@ body {
   text-indent: 3em;
   /* 들여쓰기 */
 }
+.timeline{
+  position: relative;
+  padding-bottom:50px;
+}
+
+.timeline::after {
+  content:' ';
+  background-color: rgba(0,0,0,0.3);
+  position: absolute;
+  left: 50%;
+  top: 5vw;
+  bottom: 0;
+  width: 6px;
+  border-radius: 5px;
+  margin-left: -3px;
+  z-index:-1;
+}
 
 .timeline-item{
   margin-top: 70px;
@@ -63,21 +80,23 @@ body {
 .card { 
   background-color: rgba(0,0,0,0.5);
   color: #999;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   /* 마진 겹침 현상을 상쇄하기 위하여 padding:20px 를 주었다.
   overplow:hidden 이나 border을 주는 방법도 있다. */
   border-radius: 30px;
 }
 
 .card-icon {
-  width: 100px;
+  width: 70px;
   height: auto;
   vertical-align:top;
   /* position: relative;
   top: -50px; */
   /* transform: translateY(-50%); */
   /* 나의 높이의 -50%만큼 올린다 */
-  margin-top:-70px;
+  margin-top:-35px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .card-title {
@@ -86,6 +105,7 @@ body {
   font-family: "impact";
   line-height: 1;
   margin: 20px;
+  position: relative;
 }
 
 .card-definition {
@@ -104,10 +124,29 @@ body {
   font-size: 0.5em;
 }
 
+
 @media (min-width: 720px) {
   .card-title{
-    font-size: 10vw;
+    font-size: 7vw;
+    display: inline-block;
+    position: relative;
   }
+  .card-title::after{
+    content: '';
+    position: absolute;
+    right: -60px;
+    top:50%;
+    background-color: white;
+    border:  6px solid dodgerblue;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(50%, -50%);
+    z-index: 10;
+     background-color: #0a222b;
+  }
+  /* 타임라인 점백이 만들기 */
+
   .cover {
     padding-top : 10%;
     padding-bottom: 5%;
@@ -116,16 +155,37 @@ body {
   .cover-title {
     font-size: 15vw;
   }
+  .timeline::after{
+    background: dodgerblue;
+  }
   .timeline-item {
     width: 50%;
     padding: 0 20px;
     box-sizing:border-box;
+    text-align: right;
   }
   .timeline-item:nth-child(even){
     margin-left: auto;
     margin-top: -150px;
     margin-bottom: -200px;
+    text-align: left;
   }
   /* 짝수에 해당하는 요소를 선택하겠다 */
   /* 네거티브 마진 겹치는 효과*/
+  .card {
+    position: relative;
+  }
+  .card-icon{
+    position: absolute;
+    left:0;
+    top:0;
+  }
+  .timeline-item:nth-child(even) .card-icon{
+    left: auto;
+    right:0;
+  }
+   .timeline-item:nth-child(even) .card-title::after{
+    left: -60px;
+    transform: translate(-50%,-50%);
+  }
 }
